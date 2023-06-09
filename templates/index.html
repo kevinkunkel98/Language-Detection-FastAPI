@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Language Detection</title>
+</head>
+<body>
+    <h1>Language Detection V1</h1>
+    <form action="/detect" method="post">
+        <input type="text" name="text" placeholder="Enter text" required>
+        <button type="submit">Detect</button>
+    </form>
+    <div id="result">
+        {% if result %}
+            Detected Language: {{ result }}
+        {% endif %}
+    </div>
+</body>
+</html>
