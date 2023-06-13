@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" />
     <title>Language Detection</title>
+    <style>
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+    </style>
 </head>
 <body>
-    <h1>Language Detection V1</h1>
-    <form action="/detect" method="post">
-        <input type="text" name="text" placeholder="Enter text" required>
-        <button type="submit">Detect</button>
-    </form>
-    <div id="result">
-        {% if result %}
-            Detected Language: {{ result }}
-        {% endif %}
+    <div class="center-content">
+        <h1>Language Detection V1</h1>
+        <img src="/static/loise.jpeg" class="rounded mx-auto d-block">
+        <form action="/detect" method="post">
+            <div class="form-group">
+                <h3>Enter Text:</h3>
+                <textarea class="form-control" id="inputText" name="text" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Detect</button>
+        </form>
+        <div id="result">
+            {% if result %}
+                <h3>Entered Text:</h3>
+                <p>{{ text }}</p>
+                <h3>Detected Language:</h3>
+                <p>{{ result }} <i class="flag-icon flag-icon-{{ result }}"></i></p>
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>
